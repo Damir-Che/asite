@@ -1,0 +1,67 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.comment_block{
+  border: 1px solid red;
+}
+
+.button_comment_active{
+  font-size: 30px;
+}
+
+
+
+.media-body .author {
+  display: inline-block;
+  font-size: 1rem;
+  color: #000;
+  font-weight: 700;
+}
+.media-body .metadata {
+  display: inline-block;
+  margin-left: .5rem;
+  color: #777;
+  font-size: .8125rem;
+}
+
+.vote.plus:hover {
+  color: green;
+}
+
+.vote {
+  cursor: pointer;
+}
+
+.media-text {
+  margin-bottom: 0.25rem;
+}
+.title-comments {
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+  color: rgba(0, 0, 0, .87);
+  margin-bottom: 1rem;
+  padding-bottom: .25rem;
+  border-bottom: 1px solid rgba(34, 36, 38, .15);
+}
+
+.comment_body{
+  overflow: auto;
+  height: 300px;
+  background-color: #F2F2F2;
+}
+
+
+#comment_body{
+  width: 700px;
+  margin-left: 1em;
+}
+
+.sign_out{
+  font-size: 20px;
+}
+
+#sign_out{
+  font-size: 20px;
+}
+
