@@ -13,6 +13,8 @@
       <%= image_tag @post.image.url(:thumb), class: 'img-show mr-3' if @post.image? %>
 
       <p><%= @post.body %></p>
+      <%= link_to '<i class="fa fa-heart " aria-hidden="true"></i>'.html_safe, post_likes_path(@post), method: :@post, class: 'like like_posts col-sm-3', id: 'like' %><%=  @post.likes.count %>
+
     </div>
     <hr>
     <% if user_signed_in? %>

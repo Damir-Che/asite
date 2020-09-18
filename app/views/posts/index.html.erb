@@ -3,8 +3,8 @@
   <div class="container">
     <div class="card ">
       <div class="card-header link">
-        <p>User: <%= p.user_id%></p>
-        <p>id: <%= p.id %></p>
+        <p>User: <%= p.user.name%></p>
+        <p>Post_id: <%= p.id %></p>
         <h4><%= link_to p.title, post_path(p) %></h4>
         <small>
           <%= link_to 'Изменить', edit_post_path(p) %>
@@ -15,7 +15,14 @@
         <%= image_tag p.image.url(:large), class: 'img-show mr-3' if p.image? %>
         <p><%= p.body %></p>
       </div>
-       <%= link_to '<i class="fa fa-commenting" aria-hidden="true"></i>'.html_safe, post_path(p),  class: 'button_comment_active ml-3' %><%= p.comments.count %>
+
+      <div class="row">
+        <%= link_to '<i class="fa fa-heart " aria-hidden="true"></i>'.html_safe, post_likes_path(p), method: :post, class: 'like like_posts col-sm-3', id: 'like' %><%=  p.likes.count %>
+<!--        <p class="col-sm-3"></p>--> |
+        <%= link_to '<i class="fa fa-commenting" aria-hidden="true"></i>'.html_safe, post_path(p),  class: 'button_comment_active ml-3 col-sm-3 ' %><%= p.comments.count %>
+      </div>
+
+
     </div>
   </div>
   <br>

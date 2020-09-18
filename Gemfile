@@ -6,7 +6,7 @@ gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'jquery-rails'
 gem 'devise'
 gem 'carrierwave', '~> 2.0'
-gem 'carrierwave', '~> 2.0'
+gem "mini_magick"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
