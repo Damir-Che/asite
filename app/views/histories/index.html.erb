@@ -1,0 +1,19 @@
+<h1>index-history</h1>
+
+<% @histories.each do |cmt| %>
+  <%= render 'histories/history', history: cmt %>
+<%end %>
+
+
+
+<%#  @histories.each do |h| %>
+<!--  <p><%#=link_to h.title, history_path(h) %></p>-->
+
+<!--  <small>-->
+<%#= link_to 'Изменить', edit_history_path(h) %>
+<%#= link_to 'Удалить', history_path(h), method: :delete %>
+<!--  </small>-->
+<!--  <p><%#= h.body %></p>-->
+<!--  <p>Источник: <%#= h.source %></p>-->
+<!--  <hr>-->
+<%# end %>

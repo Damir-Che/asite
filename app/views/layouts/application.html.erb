@@ -32,9 +32,17 @@
     <div class="container_all_posts p-2">
       <%= link_to 'Все статьи', posts_path, class: 'all_posts'%>
     </div>
+
+    <div class="container_all_posts p-2">
+      <%= link_to 'История', histories_path, class: 'all_posts'%>
+    </div>
+    <div class="container_all_posts p-2">
+      <%= link_to 'Добавить историю', new_history_path, class: 'all_posts'%>
+    </div>
     <div class="container_all_posts p-2 ml-3">
       <%= link_to 'Новая статья', new_post_path, class: 'all_posts'%>
     </div>
+
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <li class="nav-item container_all_posts">
