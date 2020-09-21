@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_204055) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.integer "status", default: 0
+    t.integer "kind", default: 0
   end
 
   create_table "users", force: :cascade do |t|
