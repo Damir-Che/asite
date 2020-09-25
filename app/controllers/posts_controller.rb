@@ -1,8 +1,13 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
-    @comments = Comment.order(:created_at).limit(5)
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]) # для отображение тэгов
+      @comments = Comment.order(:created_at).limit(5)
+    else
+      @posts = Post.all
+      @comments = Comment.order(:created_at).limit(5)
+    end
   end
 
   def show
@@ -39,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :tag_list)
   end
 
 end

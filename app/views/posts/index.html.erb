@@ -1,4 +1,11 @@
 
+<div id="tag_cloud"> <!-- для отображения ввурху тэгов -->
+  <% tag_cloud Post.tag_counts, %[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+
 <% @posts.each do |p| %>
   <div class="container">
     <div class="card ">
@@ -6,11 +13,16 @@
         <p>User: <%= p.user.name%></p>
         <p>Post_id: <%= p.id %></p>
         <h4><%= link_to p.title, post_path(p) %></h4>
+
+        <p><%= raw p.tags.map { |t| link_to t.name,  posts_path(tag: t.name)}.join(', ') %></p> <!--для отображение тэга поста -->
+
         <small>
           <%= link_to 'Изменить', edit_post_path(p) %>
           <%= link_to 'Удалить', post_path(p), method: :delete %>
         </small>
       </div>
+
+
       <div class="card-body text_post clearfix">
         <%= image_tag p.image.url(:large), class: 'img-show mr-3' if p.image? %>
         <p><%= p.body %></p>
@@ -18,7 +30,6 @@
 
       <div class="row">
         <%= link_to '<i class="fa fa-heart " aria-hidden="true"></i>'.html_safe, post_likes_path(p), method: :post, class: 'like like_posts col-sm-3', id: 'like' %><%=  p.likes.count %>
-<!--        <p class="col-sm-3"></p>--> |
         <%= link_to '<i class="fa fa-commenting" aria-hidden="true"></i>'.html_safe, post_path(p),  class: 'button_comment_active ml-3 col-sm-3 ' %><%= p.comments.count %>
       </div>
 

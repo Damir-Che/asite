@@ -8,6 +8,8 @@ gem 'devise'
 gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
 gem 'activeadmin'
+gem 'acts-as-taggable-on', '~> 6.0'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

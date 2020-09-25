@@ -1,8 +1,10 @@
 class Post < ApplicationRecord
 
-  mount_uploader :image, ImageUploader
+  acts_as_taggable_on :tags # тэги
 
-  enum kind: [:regular, :history]
+  mount_uploader :image, ImageUploader #доб картинок
+
+  enum kind: [:regular, :history] #enum
 
   belongs_to :user
   has_many :comments

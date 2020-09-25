@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   resources :histories
+  get 'tags/:tag', to: 'posts#index', as: :tag
 end
