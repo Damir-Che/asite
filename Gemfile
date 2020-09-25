@@ -9,6 +9,9 @@ gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
 gem 'activeadmin'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'trix'
+gem 'trix-gem', '~> 0.11.2'
+
 
 
 

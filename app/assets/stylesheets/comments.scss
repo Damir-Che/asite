@@ -1,10 +1,10 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.comment_block{
-  border: 1px solid red;
-}
-
+//.comment_block{
+//  border: 1px solid red;
+//}
+//
 .button_comment_active{
   font-size: 30px;
 }
@@ -56,12 +56,16 @@
   width: 700px;
   margin-left: 1em;
 }
-
+//
 .sign_out{
   font-size: 20px;
 }
 
 #sign_out{
+  font-size: 20px;
+}
+
+.comment_b{
   font-size: 20px;
 }
 

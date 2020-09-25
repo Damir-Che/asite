@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]) # для отображение тэгов
@@ -11,7 +14,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -20,23 +22,28 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create(post_params)
-    redirect_to @post
+    if @post.save
+      redirect_to @post, success: 'Статья успешно создана'
+    else
+      render :new, warning: 'Статья не созданна'
+    end
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.update_attributes(post_params)
-    redirect_to @post
+    if @post.save
+      redirect_to @post, success: 'Статья успешно обновлена'
+    else
+      render :edit, danger: 'Статья не обновлена'
+    end
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to posts_path, success: 'Статья успешно удалена'
   end
 
 
@@ -45,6 +52,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :image, :tag_list)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
 end

@@ -33,6 +33,7 @@
       <%= link_to 'Все статьи', posts_path, class: 'all_posts'%>
     </div>
 
+
     <div class="container_all_posts p-2">
       <%= link_to 'История', histories_path, class: 'all_posts'%>
     </div>
@@ -42,6 +43,12 @@
     <div class="container_all_posts p-2 ml-3">
       <%= link_to 'Новая статья', new_post_path, class: 'all_posts'%>
     </div>
+
+    <div class="container_all_posts p-2 ml-3">
+      <%= link_to 'Admin',  new_admin_user_session_path, class: 'btn btn-warning' %>
+    </div>
+
+
 
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
@@ -56,13 +63,26 @@
         <li class="nav-item container_all_posts">
           <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'all_posts mr-2'%>
         </li>
-      <% end %>
+
+    <% end %>
     </ul>
   </nav>
 
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <% flash.each do |name, message| %>
+          <div class="alert alert-<%= name %>">
+            <%= message %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
 
   <%= yield %>
   </body>

@@ -4,15 +4,19 @@
   <div class="card ">
     <div class="card-header link">
       <p><%= @post.title %></p>
-      <small>
-        <%= link_to 'Изменить', edit_post_path(@post) %>
-        <%= link_to 'Удалить', post_path(@post), method: :delete %>
-      </small>
+      <p><%= raw @post.tags.map { |t| link_to t.name,  posts_path(tag: t.name)}.join(', ') %></p> <!--для отображение тэга поста -->
+
+      <% if user_signed_in? %>
+        <small>
+          <%= link_to 'Изменить', edit_post_path(@post) %>
+          <%= link_to 'Удалить', post_path(@post), method: :delete %>
+        </small>
+      <%end %>
     </div>
     <div class="card-body text_post clearfix">
       <%= image_tag @post.image.url(:thumb), class: 'img-show mr-3' if @post.image? %>
 
-      <p><%= @post.body %></p>
+      <p><%= @post.body.html_safe %></p>
       <%= link_to '<i class="fa fa-heart " aria-hidden="true"></i>'.html_safe, post_likes_path(@post), method: :@post, class: 'like like_posts col-sm-3', id: 'like' %><%=  @post.likes.count %>
 
     </div>
