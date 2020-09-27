@@ -38,14 +38,14 @@
       <%= link_to 'История', histories_path, class: 'all_posts'%>
     </div>
 
-    <%# if current_user.usual? %>
+    <% if current_user.active? %>
       <div class="container_all_posts p-2">
         <%= link_to 'Добавить историю', new_history_path, class: 'all_posts'%>
       </div>
       <div class="container_all_posts p-2 ml-3">
         <%= link_to 'Новая статья', new_post_path, class: 'all_posts'%>
       </div>
-    <%#end %>
+    <%end %>
 
     <div class="container_all_posts p-2 ml-3">
       <%= link_to 'Admin',  new_admin_user_session_path, class: 'btn btn-warning' %>

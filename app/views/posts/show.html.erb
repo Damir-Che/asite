@@ -3,7 +3,7 @@
   <div class="container">
     <div class="card ">
       <div class="card-header link">
-        <p><%= @post.title %></p>
+        <p><%= @post.title %> (<small> status: <%= @post.status %></small>)</p>
         <p><%= raw @post.tags.map { |t| link_to t.name,  posts_path(tag: t.name)}.join(', ') %></p> <!--для отображение тэга поста -->
 
         <% if user_signed_in? %>
@@ -11,7 +11,7 @@
             <%= link_to 'Изменить', edit_post_path(@post) %>
             <%= link_to 'Удалить', post_path(@post), method: :delete %>
           </small>
-        <%end %>
+      <%end %>
       </div>
       <div class="card-body text_post clearfix">
         <%= image_tag @post.image.url(:thumb), class: 'img-show mr-3' if @post.image? %>

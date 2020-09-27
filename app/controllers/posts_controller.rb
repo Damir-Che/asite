@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       @posts = Post.tagged_with(params[:tag]) # для отображение тэгов
       @comments = Comment.order(:created_at).limit(5)
     else
-      @posts = Post.all
+      @posts = Post.published
       @comments = Comment.order(:created_at).limit(5)
     end
   end
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :tag_list)
+    params.require(:post).permit(:title, :body, :image, :tag_list, :status)
   end
 
   def set_post
