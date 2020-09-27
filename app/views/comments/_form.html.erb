@@ -1,15 +1,17 @@
-<%= form_for ([@post, @post.comments.build]) do |f| %> <!--[Post.find(params[:id]), Post.commetns.new]) -->
 
-  <div class="form-group row">
-      <%= f.text_area :body, cols: 10, class:'form-control col-sm-9 ', id: 'comment_body', rows: 1  %>
-      <%= f.submit 'Сохранить', class: 'btn btn-primary col-sm-2 ml-1' %>
+  <%= form_for ([@post, @post.comments.build]) do |f| %> <!--[Post.find(params[:id]), Post.commetns.new]) -->
 
-<!--    <button class='btn btn-default but_block_icon_commetns col-sm-1 ' type='submit' value='submit'>-->
-<!--      <i class="fa fa-paper-plane  pr-5" aria-hidden="true"></i>-->
-<!--    </button>-->
+    <div class="form-group row">
+        <%= f.text_area :body, cols: 10, class:'form-control col-sm-9 ', id: 'comment_body', rows: 1  %>
+        <%= f.submit 'Сохранить', class: 'btn btn-primary col-sm-2 ml-1' %>
 
-  </div>
-<%end %>
+  <!--    <button class='btn btn-default but_block_icon_commetns col-sm-1 ' type='submit' value='submit'>-->
+  <!--      <i class="fa fa-paper-plane  pr-5" aria-hidden="true"></i>-->
+  <!--    </button>-->
+
+    </div>
+  <%end %>
+
 
 
 

@@ -1,4 +1,36 @@
 
-<p>body: <%= history.body %></p>
-<p>source: <%= history.source %></p>
-<hr>
+<!--<p>body: <%#= history.id %></p>-->
+<!--<p>body: <%#= history.title %></p>-->
+<!--<p>body: <%#= history.body %></p>-->
+<!--<p>source: <%#= history.source %></p>-->
+<!--<hr>-->
+<%# if history.id.even? %>
+<%# if history.id.odd? %>
+
+<div class="container">
+  <div class="row">
+    <% if history.id.even? %>
+      <div class="col-xs-6 col-md-3">
+        <p>id: <%= history.id %></p>
+        <p>body: <%= history.title %></p>
+        <p>body: <%= history.body %></p>
+        <p>source: <%= history.source %></p>
+      </div>
+    <%end %>
+    <% if history.id.odd? %>
+      <div class="col-xs-6 col-md-3">
+        <p>id: <%= history.id %></p>
+        <p>body: <%= history.title %></p>
+        <p>body: <%= history.body %></p>
+        <p>source: <%= history.source %></p>
+      </div>
+    <%end %>
+    <div class="col-xs-6 col-md-3">
+      <p>id: <%= history.id %></p>
+      <p>body: <%= history.title %></p>
+      <p>body: <%= history.body %></p>
+      <p>source: <%= history.source %></p>
+    </div>
+  </div>
+
+</div>

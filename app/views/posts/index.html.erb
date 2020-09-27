@@ -10,39 +10,34 @@
 
 
 <% @posts.each do |p| %>
-  <div class="container">
-    <div class="card ">
-      <div class="card-header link">
-        <p>User: <%= p.user.name%></p>
-        <p>Post_id: <%= p.id %></p>
-        <h4><%= link_to p.title, post_path(p) %></h4>
-
-        <p><%= raw p.tags.map { |t| link_to t.name,  posts_path(tag: t.name)}.join(', ') %></p> <!--для отображение тэга поста -->
-
-        <% if user_signed_in? %>
-          <small>
-            <%= link_to 'Изменить', edit_post_path(p) %>
-            <%= link_to 'Удалить', post_path(p), method: :delete %>
-          </small>
-          <%end %>
+  <% if p.user.active? %>
+    <div class="container">
+      <div class="card ">
+        <div class="card-header link">
+          <p>User: <%= p.user.name%></p>
+          <p>Post_id: <%= p.id %></p>
+          <h4><%= link_to p.title, post_path(p) %></h4>
+          <p><%= raw p.tags.map { |t| link_to t.name,  posts_path(tag: t.name)}.join(', ') %></p> <!--для отображение тэга поста -->
+          <% if user_signed_in? %>
+            <small>
+              <%= link_to 'Изменить', edit_post_path(p) %>
+              <%= link_to 'Удалить', post_path(p), method: :delete %>
+            </small>
+            <%end %>
+        </div>
+        <div class="card-body text_post clearfix">
+          <%= image_tag p.image.url(:large), class: 'img-show mr-3' if p.image? %>
+          <p><%= p.body.html_safe %></p>
+        </div>
+        <div class="row">
+          <%#= link_to '<i class="fa fa-heart " aria-hidden="true"></i>'.html_safe, post_likes_path(p), method: :post, class: 'like like_posts col-sm-3', id: 'like' %><%#=  p.likes.count %>
+          <p class="like_count col-sm-1"><%= link_to '<i class="fa fa-heart " aria-hidden="true"></i>'.html_safe, post_likes_path(p), method: :post, class: 'like like_posts p-3', id: 'like' %><%=  p.likes.count %></p>
+          <p class="comment_b col-sm-3"><%= link_to '<i class="fa fa-commenting" aria-hidden="true"></i>'.html_safe, post_path(p),  class: '  col-sm-3 ' %><%= p.comments.count %></p>
+        </div>
       </div>
-
-
-      <div class="card-body text_post clearfix">
-        <%= image_tag p.image.url(:large), class: 'img-show mr-3' if p.image? %>
-        <p><%= p.body.html_safe %></p>
-      </div>
-
-      <div class="row">
-        <%#= link_to '<i class="fa fa-heart " aria-hidden="true"></i>'.html_safe, post_likes_path(p), method: :post, class: 'like like_posts col-sm-3', id: 'like' %><%#=  p.likes.count %>
-        <p class="like_count col-sm-1"><%= link_to '<i class="fa fa-heart " aria-hidden="true"></i>'.html_safe, post_likes_path(p), method: :post, class: 'like like_posts p-3', id: 'like' %><%=  p.likes.count %></p>
-        <p class="comment_b col-sm-3"><%= link_to '<i class="fa fa-commenting" aria-hidden="true"></i>'.html_safe, post_path(p),  class: '  col-sm-3 ' %><%= p.comments.count %></p>
-      </div>
-
-
     </div>
-  </div>
-  <br>
+    <br>
+  <% end %>
 <%end %>
 
 

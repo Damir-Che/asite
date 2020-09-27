@@ -9,7 +9,7 @@
   </div>
 <%end %>
 
-
+<% if current_user.active? %>
 <%= form_for @post, html: {multipart: true} do |f| %>
   <div class="cart">
     <div class="cart-body">
@@ -41,4 +41,5 @@
 
     </div>
   </div>
+<% end %>
 <% end %>
