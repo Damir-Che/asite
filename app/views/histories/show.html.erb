@@ -1,5 +1,93 @@
 <h1>show</h1>
 
-<p><%= @history.title %></p>
-<p><%= @history.body %></p>
-<p>Источник: <%= @history.source %></p>
+<!--<p><%#= @history.body %></p>-->
+<!--<p>Источник: <%#= @history.source %></p>-->
+
+<div class="container">
+  <div class="card ">
+    <div class="card-header link">
+      <p><%= @history.title %></p>
+      <% if user_signed_in? %>
+        <small>
+          <%= link_to 'Изменить', edit_history_path(@history) %>
+          <%= link_to 'Удалить', history_path(@history), method: :delete %>
+        </small>
+      <%end %>
+    </div>
+    <div class="card-body text_post clearfix">
+      <%= image_tag @history.image.url(:thumb), class: 'img-show mr-3' if @history.image? %>
+      <p><%= @history.body.html_safe %></p>
+      <hr>
+      <p>Источник: <%= @history.source %></p>
+      <%#= link_to '<i class="fa fa-heart " aria-hidden="true"></i>'.html_safe, post_likes_path(@post), method: :@post, class: 'like like_posts col-sm-3', id: 'like' %><%#=  @post.likes.count %>
+    </div>
+  </div>
+</div>
+<br>
+
+
+<!--<div class="container comment_block">-->
+
+<!--  <p>Comments: <%#= @post.comments.count %></p>-->
+<%# if user_signed_in? %>
+<%#= render 'comments/form' %>
+<%#end %>
+
+<!--<h3 class="title-comments">Комментарии <%#= @post.comments.count %></h3>-->
+
+<%# @post.comments.each do |cmt| %>
+<%#= render 'comments/comment', comment: cmt %>
+<%#end %>
+
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%#= form_for ([@post, Comment.new]) do |f| %>
+
+
+<%#end %>
+
+<!--<div class="scroll_comments">-->
+<%# @post.comments.each do |comment| %>
+
+<!--    <div class="card m-2">-->
+<!--      <div class="card-body">-->
+<!--        <p class="card-title"><%#=comment.body%></p>-->
+<!--        <p class="card-title"><%#=comment.user_id%></p>-->
+<!--        <p class="card-text"><%#= comment.created_at.strftime("%H:%M:%S %d-%m-%Y") %></p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <br>-->
+
+<%# end %>
+<!--</div>-->

@@ -10,36 +10,36 @@
 <%end %>
 
 <% if current_user.active? %>
-<%= form_for @post, html: {multipart: true} do |f| %>
-  <div class="cart">
-    <div class="cart-body">
+  <%= form_for @post, html: {multipart: true} do |f| %>
+    <div class="cart">
+      <div class="cart-body">
 
-      <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control' %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :body %>
+          <%= f.trix_editor :body, class: 'editor' %>
+        </div>
+
+        <div class="form-group"> <!-- для тэгов-->
+          <%= f.label :tag_list %>
+          <%= f.text_field :tag_list, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.file_field :image %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
+          <%= link_to t('Назад'), :back, class: 'btn btn-outline-secondary' %>
+        </div>
+
       </div>
-
-      <div class="form-group">
-        <%= f.label :body %>
-        <%= f.trix_editor :body, class: 'editor' %>
-      </div>
-
-      <div class="form-group"> <!-- для тэгов-->
-        <%= f.label :tag_list %>
-        <%= f.text_field :tag_list, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.file_field :image %>
-      </div>
-
-
-      <div class="form-group">
-        <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
-        <%= link_to t('Назад'), :back, class: 'btn btn-outline-secondary' %>
-      </div>
-
     </div>
-  </div>
-<% end %>
+  <% end %>
 <% end %>

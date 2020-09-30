@@ -38,7 +38,7 @@ class HistoriesController < ApplicationController
 
   private
   def history_params
-    params.require(:history).permit(:title, :body, :source, :category_id)
+    params.require(:history).permit(:title, :body, :source, :image)
   end
 
 end
